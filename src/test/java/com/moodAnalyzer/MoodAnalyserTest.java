@@ -4,26 +4,25 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MoodAnalyserTest {
-	MoodAnalyser moodAnalyser = new MoodAnalyser();
-
-	// Method to test if the mood is sad
 	@Test
-	public void whenTestedMood_ifIamInSadMood_shouldReturnSad() {
-		String mood = moodAnalyser.analyseMood("I am in sad Mood");
+	public void iAmIn_SadMood_ShouldReturn_sad() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
+		String mood = moodAnalyser.analyseMood();
 		Assert.assertEquals("sad", mood);
 	}
 
-	// Method to test if the mood is happy
 	@Test
-	public void whenTestedMood_ifHappy_shouldReturnHappy() {
-		String mood = moodAnalyser.analyseMood("Happy Days");
+	public void iAmIn_anyMood_ShouldReturn_happy() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in any mood");
+		String mood = moodAnalyser.analyseMood();
 		Assert.assertEquals("Happy", mood);
 	}
 
-	// Method to test if the no mood is given
 	@Test
-	public void whenTestedMood_ifNotInAnyMood_shouldReturnHappy() {
-		String mood = moodAnalyser.analyseMood("I am not in a mood");
+	public void null_Should_Return_Happy_Mood() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+		String mood = moodAnalyser.analyseMood();
 		Assert.assertEquals("Happy", mood);
 	}
+
 }
